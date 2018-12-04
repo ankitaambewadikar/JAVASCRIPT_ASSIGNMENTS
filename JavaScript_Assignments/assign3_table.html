@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TableAssign</title>
+    <style type="text/css"> 
+        body {margin: 30px;} 
+        </style> 
+</head>
+<body>
+    <h1>Create table</h1>
+    <p>Click the button to enter row and column</p>
+   
+    <p id="row"></p>
+    <p id="colum"></p>
+    <table id="myTable" border="1"> 
+        </table>
+                <button onclick="table()">Click</button>
+    
+    <script>
+        function table(){
+          
+            rn = window.prompt("Input number of rows");
+            cn = window.prompt("Input number of columns");
+  
+            for(var r=0;r<rn;r++)
+                {
+                    var x=document.getElementById('myTable').insertRow(r);
+                    for(var c=0;c<cn;c++)  
+                        {
+                            var y=  x.insertCell(c);
+                             y.innerHTML="Row-"+r+","+" Column-"+c; 
+                        }
+                }
+        }
+    
+    </script>
+</body>
+</html>

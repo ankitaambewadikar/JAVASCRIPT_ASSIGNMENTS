@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Temperature Calculator</title>
+</head>
+<body>
+    <h2>Temperature convertor</h2>
+    
+        Temperature :
+        <input id="input" type="text" placeholder="Fahrenheit">
+
+        <button onclick="temperatureConverter()">Show Results</button>
+        <br>
+
+        Converted Temperature:<p id="output"></p>
+
+        <script>
+        function temperatureConverter() {
+            var fahrenheit = document.getElementById("input").value;
+				var celsius;
+				if(isNaN(fahrenheit)){
+                    alert("Please enter a value");
+					
+				}else{
+                    celsius = (fahrenheit - 32) * 5/9;
+					document.getElementById("output").innerHTML = celsius;
+				}
+            }
+        </script>
+    
+    
+</body>
+</html>
+
+

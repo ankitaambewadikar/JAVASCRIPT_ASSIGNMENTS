@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asterisk</title>
+</head>
+<body>
+    <p>Click the button to enter number</p>
+    <button onclick="integer()">Click</button>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <script>
+    function integer(){
+
+    
+        var num= prompt("Enter numbers between 1-30");
+        if((num<1) || (num>30) || isNaN(num))
+        {
+            alert("Enter correct input");
+        }
+        else {
+            for(var count=1;count<=num;count++){
+             var a=document.getElementById("demo1");
+             a.innerHTML += "*";
+         }
+        }
+         
+         var num= prompt("Enter numbers between 1-30");
+         if((num<1) || (num>30) || isNaN(num))
+        {
+            alert("Enter correct input");
+        }
+        else{
+            for(var count=1;count<=num;count++){
+             var a=document.getElementById("demo2");
+             a.innerHTML += "*";
+         }
+        }
+         
+         var num= prompt("Enter numbers between 1-30");
+         if((num<1) || (num>30) || isNaN(num))
+        {
+            alert("Enter correct input");
+        }
+        else{
+            for(var count=1;count<=num;count++){
+            var a=document.getElementById("demo3");
+            a.innerHTML += "*";
+        }
+        }
+        
+        
+       
+        
+     }
+           
+       
+                    
+        </script>
+</body>
+</html>
