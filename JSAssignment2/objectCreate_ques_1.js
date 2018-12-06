@@ -33,9 +33,9 @@ var person2={                                           //similar how we have cr
 
 };
 
-function print(){
+function print(){                               //function print to print the object literals
     console.log(person1);
     console.log(person2);
 }
 
-print();
+print();                                        //calling the print function globally

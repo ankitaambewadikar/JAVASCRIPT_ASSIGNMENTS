@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pizza</title>
+    
+    <link rel ="stylesheet" type="text/css" href="pizza.css">
 </head>
 <body>
     Name: &nbsp;
@@ -12,7 +14,7 @@
     <br>
     <br>
     Email: &nbsp;
-    <input type="text" name="email" id="demo2">
+    <input type="text" name="email" id="demo2" required>
     <br>
     <br>
     <br>
@@ -48,26 +50,24 @@
     <br>
     <b>How do you want to get your Pizza!</b> &nbsp;
     <label for="delivery">Delivery</label>
-    <input type="radio" id ="delivery" name="delivery">
+    <input type="radio" id ="delivery" name="delivery" required>
 
     <label for="pickup">Pick Up</label>
-    <input type="radio" id ="pickup" name="pickup">
+    <input type="radio" id ="pickup" name="pickup" required>
     <br>
     <br>
     <b>Tip ?</b> &nbsp;
     <select name="tip">
-        <option value="tip0">Tip</option>
+
         <option value="tip1">15%</option>
         <option value="tip2">20%</option>
         <option value="tip3">25%</option>
       </select>
       <br>
       <br>
-      <p>---------------------------------------------------------------------------------------------
-          ----------------------------------
-      </p>
+      <hr/>
       <b>Address</b><br>
-      <textarea maxlength="50"></textarea>
+      <textarea maxlength="50" required></textarea>
       <br>
       <input type="submit" value="Submit">
       <input type="reset" value="Reset">
