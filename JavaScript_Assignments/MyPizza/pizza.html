@@ -9,70 +9,182 @@
     <link rel ="stylesheet" type="text/css" href="pizza.css">
 </head>
 <body>
+    <script src="pizza.js"></script>
     Name: &nbsp;
-    <input type="text" name="firstname" id="demo1">
+    <input type="text" class="firstName" id="name" required>
     <br>
     <br>
     Email: &nbsp;
-    <input type="text" name="email" id="demo2" required>
+    <input type="text" name="email" id="email" required>
     <br>
     <br>
     <br>
     <b>Toppings:</b>
     <br>
     <br>
-    <div>
+    <p id="toppings">
     
     <label for="cheese">Extra Cheese</label>
-    <input type="checkbox" id="cheese" name="cheese">
+    <input type="checkbox" name="check">
     
     <label for="olives">Olives</label>
-    <input type="checkbox" id="olives" name="olives">
+    <input type="checkbox" name="check">
 
     <label for="pepperoni">Pepperoni</label>
-    <input type="checkbox" id="pepperoni" name="pepperoni">
+    <input type="checkbox" name="check">
 
     <label for="pepper">Pepper</label>
-    <input type="checkbox" id="pepper" name="pepper">
+    <input type="checkbox" name="check">
 
     <label for="bacon">Bacon</label>
-    <input type="checkbox" id="bacon" name="bacon">
+    <input type="checkbox" name="check">
 
     <label for="tomato">Tomatoes</label>
-    <input type="checkbox" id="tomato" name="tomato">
+    <input type="checkbox" name="check">
 
     <label for="mushroom">Mushrooms</label>
-    <input type="checkbox" id="mushroom" name="mushroom">
+    <input type="checkbox" name="check">
 
 
-    </div>
+    </p>
     <br>
     <br>
-    <b>How do you want to get your Pizza!</b> &nbsp;
-    <label for="delivery">Delivery</label>
-    <input type="radio" id ="delivery" name="delivery" required>
+    <p><b>How do you want to get your pizza!</b>
+    Delivery<input type="radio" name ="delivery" id ="delivery" value="Delivery">
+    Pickup<input type="radio" name="delivery" value="Pickup">
+    </p>
 
-    <label for="pickup">Pick Up</label>
-    <input type="radio" id ="pickup" name="pickup" required>
     <br>
     <br>
     <b>Tip ?</b> &nbsp;
-    <select name="tip">
+    <select name="tip" id="tip">
 
-        <option value="tip1">15%</option>
-        <option value="tip2">20%</option>
-        <option value="tip3">25%</option>
+        <option>15%</option>
+        <option>20%</option>
+        <option>25%</option>
       </select>
       <br>
       <br>
       <hr/>
       <b>Address</b><br>
-      <textarea maxlength="50" required></textarea>
+      <textarea  id="address" rows="4" cols="60" required></textarea>
       <br>
-      <input type="submit" value="Submit">
-      <input type="reset" value="Reset">
-      <input type="submit" value="Show Summary">
 
+      <input type="button" value="Submit" onclick="checkValues()">
+      <input type="reset" value="Reset">
+
+      <button type="button" onclick="createTable()" id="showTable">Show Summary</button>
+
+    <table id="myTable" border="1"> </table>
+      
+     <script>
+            submitPressed =1;
+            checkBoxValue="";
+            name="";
+            email="";
+            address="";
+            tip="";
+            delivery="";
+
+            function checkValues()
+                {
+                     name =document.getElementById("name").value; 
+                     email =document.getElementById("email").value;
+                     
+                     toppings =document.getElementsByName('check');
+                     
+                        for(var i=0,n=toppings.length;i<n;i++)
+                        {
+                        
+                            if(toppings[i].checked== true)
+                                checkBoxValue += " "+toppings[i].value;
+                        }
+                     
+                      delivery =document.getElementById("delivery").value;
+                     tip =document.getElementById("tip").value;
+                     address =document.getElementById("address").value;
+          
+        
+                if(name=="" || email=="" || checkValues=="" || address == ""){
+                    alert("please enter the values");
+                    submitPressed = 0;
+                  
+                }
+                else
+                {
+                    submitPressed =1;
+             
+                    //document.getElementById("email").value = email;
+        
+                     document.getElementById("name").value ="shubham";
+                    alert("everything entered in a right way"+name);
+                    document.getElementsByClassName("firstName").value =name;
+                    
+                   // var btn =document.getElementById("displayButton");
+                   // btn.disabled= false;
+                  // checkSubmit();
+                }
+                }
+        
+    function checkSubmit()
+                {
+                    if(submitPressed == 1)
+                    {
+                        alert("submit button checked");
+                        createTable();
+                    }
+                    else
+                        alert("enter values and click sumit first");
+                }
+    function createTable(){
+
+    var table = document.getElementById("myTable");
+        
+    var rowOne =  table.insertRow(0);
+   var colOne = rowOne.insertCell(0);
+   var colTwo = rowOne.insertCell(1);
+   colOne.innerHTML = "Name:";
+   colTwo.innerHTML = name;
+
+    var rowOne =  table.insertRow(1);
+   var colOne = rowOne.insertCell(0);
+   var colTwo = rowOne.insertCell(1);
+   colOne.innerHTML = "Email:";
+   colTwo.innerHTML = email;
+
+    var rowOne =  table.insertRow(2);
+   var colOne = rowOne.insertCell(0);
+   var colTwo = rowOne.insertCell(1);
+   colOne.innerHTML = "Address:";
+   colTwo.innerHTML = address;
+
+    var rowOne =  table.insertRow(3);
+   var colOne = rowOne.insertCell(0);
+   var colTwo = rowOne.insertCell(1);
+   colOne.innerHTML = "Toppings";
+  // alert(checkBoxValue.value);
+   colTwo.innerHTML = checkBoxValue;
+
+    var rowOne =  table.insertRow(4);
+   var colOne = rowOne.insertCell(0);
+   var colTwo = rowOne.insertCell(1);
+   colOne.innerHTML = "Delivery?:";
+   colTwo.innerHTML = delivery;
+
+    var rowOne =  table.insertRow(5);
+   var colOne = rowOne.insertCell(0);
+   var colTwo = rowOne.insertCell(1);
+   colOne.innerHTML = "Tip amount:";
+   colTwo.innerHTML = tip;
+
+    var rowOne =  table.insertRow(6);
+   var colOne = rowOne.insertCell(0);
+   var colTwo = rowOne.insertCell(1);
+   colOne.innerHTML = "Total:";
+   colTwo.innerHTML = "";
+   }
+</script>
+     
     
 </body>
 </html>
